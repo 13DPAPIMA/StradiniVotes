@@ -9,9 +9,11 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void
+    public function register()
     {
-        //
+        $this->app->bind('Admin', function ($app) {
+            return new App\Http\Controllers\Admin\Admin;
+        });
     }
 
     /**
