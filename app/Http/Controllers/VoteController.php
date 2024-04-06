@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class VoteController extends Controller
 {
     public function create()
     {
-        // Здесь мы можем вернуть представление с формой создания голосования
-        return view('votes.create');
+        return Inertia::render('CreateVote', [
+            'status' => session('status'),
+        ]);
     }
 }

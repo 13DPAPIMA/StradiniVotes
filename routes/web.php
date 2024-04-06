@@ -28,5 +28,4 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/create-vote', [VoteController::class, 'create'])->name('votes.create')->middleware(['auth', AdminMiddleware::class]);
-
 require __DIR__.'/auth.php';

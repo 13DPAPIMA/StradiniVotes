@@ -10,7 +10,8 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (App\Http\Controllers\Admin\Admin::checkRole($request)) {
+       
+        if (Admin::checkRole($request)) {
             return $next($request);
         }
     

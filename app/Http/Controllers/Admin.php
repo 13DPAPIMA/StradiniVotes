@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Http\Request;
 
-class Admin extends Model implements Authenticatable
+class Admin extends Controller 
 {
-    public function checkRole(Request $request): bool
+    public static function checkRole(Request $request): bool
     {
         return $request->user() && $request->user()->role === 'admin';
     }

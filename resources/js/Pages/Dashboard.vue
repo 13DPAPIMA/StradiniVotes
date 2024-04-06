@@ -19,7 +19,13 @@ import { Head } from '@inertiajs/vue3';
             </div>
         </div>
 
+   <div>
+   {{$page.props.auth.user}}
+   </div>
    
+   <div>
+   {{ route('votes.create') }} 
+   </div>
         <a
         v-if="$page.props.auth.user.role === 'admin'"
         :href="route('votes.create')"
