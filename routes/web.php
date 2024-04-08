@@ -6,6 +6,7 @@ use App\Http\Controllers\VoteController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -28,4 +29,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/create-vote', [VoteController::class, 'create'])->name('votes.create')->middleware(['auth', AdminMiddleware::class]);
+
+Route::get('/create-vote', [VoteController::class, 'create'])->name('votes.create')->middleware(['auth', AdminMiddleware::class]);
+Route::post('/votes', [VoteController::class, 'store'])->name('votes.store');
+Route::post('/votes/{id}', [VoteController::class, 'update'])->name('votes.update');
+
+
 require __DIR__.'/auth.php';

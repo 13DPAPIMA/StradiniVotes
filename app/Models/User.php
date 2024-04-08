@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use  App\Http\Controllers\Admin;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,10 @@ class User extends Authenticatable
 public function hasRole($role)
 {
     return $this->roles()->where('name', $role)->exists();
+}
+
+public function votes()
+{
+    return $this->hasMany(Vote::class);
 }
 }
