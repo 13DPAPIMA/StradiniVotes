@@ -32,6 +32,14 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Balsošanas
                                 </NavLink>
+
+
+                                <NavLink  v-if="$page.props.auth.user.role === 'admin'" :href="route('votes.create')" :active="route().current('votes.create')">
+                                    Izveidot balsošanu
+                                </NavLink>
+                                
+       
+  
                             </div>
                         </div>
 

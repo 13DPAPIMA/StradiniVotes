@@ -11,11 +11,15 @@ use Illuminate\Support\Facades\Auth;
 class VoteController extends Controller
 {
     public function create()
-    {
+    {    
+       
+
+
         return Inertia::render('CreateVote', [
             'status' => session('status'),
-            'creator' => Auth::user()->email 
+            'creator' => Auth::user()->email,
         ]);
+        
     }
 
     public function store(Request $request)
