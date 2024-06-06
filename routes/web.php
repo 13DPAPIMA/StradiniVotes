@@ -34,5 +34,8 @@ Route::get('/create-vote', [VoteController::class, 'create'])->name('votes.creat
 Route::post('/votes', [VoteController::class, 'store'])->name('votes.store');
 Route::post('/votes/{id}', [VoteController::class, 'update'])->name('votes.update');
 
+Route::post('/votes/{id}', [VoteController::class, 'vstore'])->name('votes.vstore');
+
+
 
 require __DIR__.'/auth.php';
